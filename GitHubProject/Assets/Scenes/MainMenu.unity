@@ -363,7 +363,7 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1731073729}
-    PlayerPrefab: {fileID: 2696888329508074797, guid: a5a7cedb6e73943c19cbd55a2aee9e5c, type: 3}
+    PlayerPrefab: {fileID: 0}
     NetworkPrefabs: []
     TickRate: 30
     ClientConnectionBufferTimeout: 10
@@ -472,7 +472,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4212460937845075717, guid: bd55290a8710649db8ff7408634bb3d9, type: 3}
       propertyPath: m_Name
-      value: MainMenuObject
+      value: MainMenuUI
       objectReference: {fileID: 0}
     - target: {fileID: 4212460937845075718, guid: bd55290a8710649db8ff7408634bb3d9, type: 3}
       propertyPath: m_RootOrder
