@@ -12,20 +12,19 @@ public class PlayerCard : MonoBehaviour
 
     public void UpdateDisplay(CharacterSelectState state)
     {
-        if(state.CharacterId != -1)
+        if (state.CharacterId != -1)
         {
             var character = characterDatabase.GetCharacterById(state.CharacterId);
             characterIconImage.sprite = character.Icon;
             characterIconImage.enabled = true;
             characterNameText.text = character.DisplayName;
-
         }
         else
         {
             characterIconImage.enabled = false;
         }
 
-        //playerNameText = $"Player {state.ClientId}";
+        playerNameText.text = state.IsLockedIn ? $"Player {state.ClientId}" : $"Player {state.ClientId} (Picking...)";
 
         visuals.SetActive(true);
     }
