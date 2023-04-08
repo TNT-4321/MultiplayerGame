@@ -8,12 +8,14 @@ using UnityEngine.UI;
 public class CharacterSelectDisplay : NetworkBehaviour
 {
     [SerializeField] private CharacterDatabase characterDatabase;
+    //[SerializeField] private CharacterDatabaseClass characterDatabaseClass;
     [SerializeField] private Transform charactersHolder;
     [SerializeField] private CharacterSelectButton selectButtonPrefab;
     [SerializeField] private PlayerCard[] playerCards;
     [SerializeField] private GameObject characterInfoPanel;
     [SerializeField] private TextMeshProUGUI characterNameText;
     [SerializeField] private Transform introSpawnPoint;
+    [SerializeField] private TMP_Text joinCodeText;
     [SerializeField] private Button lockInButton;
 
     private GameObject introInstance;
@@ -32,6 +34,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
         if(IsClient)
         {
             Character[] allCharacters = characterDatabase.GetAllCharacters();
+            //CharacterClass[] allCharacters = characterDatabaseClass.GetAllCharacters();
 
             foreach (var character in allCharacters)
             {
@@ -40,6 +43,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
                 characterButtons.Add(selectButtonInstance);
             }
 
+            //Set the positions for the buttons
             foreach (var button in characterButtons)
             {
                 Vector2 newLastPosition;
@@ -63,6 +67,12 @@ public class CharacterSelectDisplay : NetworkBehaviour
             {
                 HandleClientConnected(client.ClientId);
             }
+        }
+
+        //Unity Relay System
+        if(IsHost)
+        {
+            joinCodeText.text = ServerManager.Instance.JoinCode;
         }
     }
 
@@ -99,7 +109,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
         }
     }
 
-    public void Select(Character character)
+    public void Select(Character character /*CharacterClass characterClass*/)
     {
         for (int i = 0; i < players.Count; i++)
         {
@@ -134,6 +144,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
             if (players[i].ClientId != serverRpcParams.Receive.SenderClientId) { continue; }
 
             if (!characterDatabase.IsValidCharacterId(characterId)) { return; }
+            //if(!characterDatabaseClass.IsValidCharacterId(characterId)) {return;}
 
             if (IsCharacterTaken(characterId, true)) { return; }
 
@@ -158,6 +169,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
             if (players[i].ClientId != serverRpcParams.Receive.SenderClientId) { continue; }
 
             if (!characterDatabase.IsValidCharacterId(players[i].CharacterId)) { return; }
+            //if(!characterDatabaseClass.IsValidCharacterId(characterId)) {return;}
 
             if (IsCharacterTaken(players[i].CharacterId, true)) { return; }
 
@@ -170,7 +182,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
 
         foreach (var player in players)
         {
-            //f one player is not locked in yet we wait
+            //if one player is not locked in yet we wait
             if(!player.IsLockedIn) {return;}
         }
 

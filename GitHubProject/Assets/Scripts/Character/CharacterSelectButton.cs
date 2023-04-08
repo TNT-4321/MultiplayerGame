@@ -11,20 +11,22 @@ public class CharacterSelectButton : MonoBehaviour
 
     private CharacterSelectDisplay characterSelect;
     public Character Character {get; private set;}
+    //public CharacterClass CharacterClass {get; private set;}
     public bool IsDisabled {get; private set;}
 
-    public void SetCharacter(CharacterSelectDisplay characterSelect, Character character)
+    public void SetCharacter(CharacterSelectDisplay characterSelect, Character character/*, CharacterClass characterClass*/)
     {
         iconImage.sprite = character.Icon;
 
         this.characterSelect = characterSelect;
         
         Character = character;
+        //CharacterClass = characterClass;
     }
 
     public void SelectCharacter()
     {
-        characterSelect.Select(Character);
+        characterSelect.Select(Character/*CharacterClass*/);
     }
 
     public void SetDisabled()

@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class SaveManager : MonoBehaviour
 {
-    public static SaveManager Instance {get; private set;}
+    /*public static SaveManager Instance {get; private set;}
 
     private void Awake() 
     {
@@ -32,5 +32,5 @@ public class SaveManager : MonoBehaviour
 
         //Create the new prefab 
         PrefabUtility.SaveAsPrefabAssetAndConnect(gameObjectToBecomePrefab, localPath, InteractionMode.UserAction);
-    }
+    }*/
 }

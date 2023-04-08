@@ -6,6 +6,7 @@ using Unity.Netcode;
 public class CharacterSpawner : NetworkBehaviour
 {
     [SerializeField] private CharacterDatabase database;
+    //[SerializeField] private CharacterDatabaseClass databaseClass;
 
     public override void OnNetworkSpawn()
     {
@@ -14,6 +15,7 @@ public class CharacterSpawner : NetworkBehaviour
         foreach (var client in ServerManager.Instance.ClientData)
         {
             var character =  database.GetCharacterById(client.Value.characterId);
+            //var characterClass = databaseClass.GetCharacterById(client.Value.characterId);
             if(character != null)
             {
                 //So that the characters spawn not on top of each other

@@ -1,8 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Text;
+using System.Threading.Tasks;
 using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
+using Unity.Networking.Transport.Relay;
+//using Unity.Services.Lobbies;
+//using Unity.Services.Lobbies.Models;
+using Unity.Services.Relay;
+using Unity.Services.Relay.Models;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.Services.Analytics;
+using Unity.Services.Core;
 
 public class ServerManager : NetworkBehaviour
 {
@@ -10,9 +21,14 @@ public class ServerManager : NetworkBehaviour
     [SerializeField] private string characterSelectSceneName = "SelectScene";
     [SerializeField] private string gameplaySceneName = "GameScene";
 
+    [SerializeField] private int maxConnections = 4;
+
     public static ServerManager Instance {get; private set;}
 
     public Dictionary<ulong, ClientData> ClientData {get; private set;}
+
+    //Unity Relay System
+    public string JoinCode {get; private set;}
 
     //So we can make that if the game has started players can no longer join, we could also do that if someone from your team disconnects we open the game again and someone can join your team so that the game remains fair
     private bool gameHasStarted;
@@ -45,8 +61,44 @@ public class ServerManager : NetworkBehaviour
         NetworkManager.Singleton.StartServer();
     }
 
-    public void StartHost()
+    public async void StartHost()
     {
+        //Unity Realy System
+        Allocation allocation;
+
+        //Unity Relay System
+        try
+        {
+            allocation = await RelayService.Instance.CreateAllocationAsync(maxConnections);
+        }
+        catch(Exception e)
+        {
+            Debug.Log($"Relay create allocation request failed {e.Message}");
+            throw;
+        }
+
+        //Just for better Debugging
+        Debug.Log($"server: {allocation.ConnectionData[0]} {allocation.ConnectionData[1]}");
+        Debug.Log($"server: {allocation.AllocationId}");
+
+        //Unity Relay System
+        try
+        {
+            //Join code 
+            JoinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+        }
+        catch
+        {
+            Debug.LogError("Relay get join code request failed");
+            throw;
+        }
+
+        //Unity Relay System
+        var relayServerData = new RelayServerData(allocation, "dtls");
+
+        //Unity Relay System | if we publish the game on steam we cannot use the Relay system 
+        NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+
         //Everytime if someone joins the server this method will be called
         NetworkManager.Singleton.ConnectionApprovalCallback += ApprovalCheck;
         NetworkManager.Singleton.OnServerStarted += OnNetworkReady;

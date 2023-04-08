@@ -376,6 +376,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8101049122434273, guid: 42f462cc0680b47b4bc063f845b806bd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.619
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101049122434273, guid: 42f462cc0680b47b4bc063f845b806bd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 448.49
+      objectReference: {fileID: 0}
     - target: {fileID: 3126899612183052240, guid: 42f462cc0680b47b4bc063f845b806bd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -424,9 +432,28 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2852180633
       objectReference: {fileID: 0}
+    - target: {fileID: 3126899612183052242, guid: 42f462cc0680b47b4bc063f845b806bd, type: 3}
+      propertyPath: joinCodeText
+      value: 
+      objectReference: {fileID: 3126899612061010045}
     - target: {fileID: 3126899612183052247, guid: 42f462cc0680b47b4bc063f845b806bd, type: 3}
       propertyPath: m_Name
       value: CharacterSelectUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5574686176809343460, guid: 42f462cc0680b47b4bc063f845b806bd, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42f462cc0680b47b4bc063f845b806bd, type: 3}
+--- !u!114 &3126899612061010045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5574686176809343460, guid: 42f462cc0680b47b4bc063f845b806bd, type: 3}
+  m_PrefabInstance: {fileID: 3126899612061010044}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
