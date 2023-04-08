@@ -16,3 +16,4 @@ MonoBehaviour:
   displayName: Mutant
   icon: {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
   introPrefab: {fileID: 7794685937029454998, guid: 4a1580bcd95e34f7ab0d6a4a2da62542, type: 3}
+  gameplayPrefab: {fileID: -3756582221187736030, guid: f643c0dc851ab4cd3885b6be924eb99c, type: 3}

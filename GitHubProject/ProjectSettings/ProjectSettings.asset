@@ -719,11 +719,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 63027183-4b48-4965-aa73-0c1edcd64340
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: GitHubProject
+  organizationId: tnt-4321
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
