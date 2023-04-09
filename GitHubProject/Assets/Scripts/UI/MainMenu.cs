@@ -1,13 +1,23 @@
+//System related
 using System;
 using System.Collections;
 using System.Collections.Generic;
+//Always
 using UnityEngine;
+//Networking
 using Unity.Netcode;
+//UI
 using UnityEngine.UI;
 using TMPro;
+//Unity Transport | Does not work if we change the transport
 using Unity.Netcode.Transports.UTP;
+//Unity Transport + RELAY
 using Unity.Networking.Transport.Relay;
 using Unity.Services.Relay.Models;
+//using Lobby System
+using Unity.Services.Lobbies;
+using Unity.Services.Lobbies.Models;
+//Authentication
 using Unity.Services.Analytics;
 using Unity.Services.Core;
 using Unity.Services.Authentication;
@@ -48,8 +58,8 @@ public class MainMenu : MonoBehaviour
         ServerManager.Instance.StartServer();
     }
 
-    public void StartClient()
+    public async void StartClient()
     {
-        ClientManager.Instance.StartClient(joinCodeInputField.text);
+        await ClientManager.Instance.StartClient(joinCodeInputField.text);
     }
 }

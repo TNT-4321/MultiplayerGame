@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
-//using Unity.Services.Lobbies;
-//using Unity.Services.Lobbies.Models;
+using Unity.Services.Lobbies;
+using Unity.Services.Lobbies.Models;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
@@ -32,6 +32,7 @@ public class ServerManager : NetworkBehaviour
 
     //So we can make that if the game has started players can no longer join, we could also do that if someone from your team disconnects we open the game again and someone can join your team so that the game remains fair
     private bool gameHasStarted;
+    private string lobbyId;
     [SerializeField] private int maxPlayersToJoinAGame = 4;
 
     private void Awake() 
@@ -99,6 +100,33 @@ public class ServerManager : NetworkBehaviour
         //Unity Relay System | if we publish the game on steam we cannot use the Relay system 
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
+        //Unity Lobby System
+        try
+        {
+            var createLobbyOptions = new CreateLobbyOptions();
+            //Later make this changable by a button
+            createLobbyOptions.IsPrivate = false;
+            createLobbyOptions.Data = new Dictionary<string, DataObject>()
+            {
+                {
+                "JoinCode", new DataObject(
+                    //For which people this is visible in our case just for the members of the Lobby
+                    visibility: DataObject.VisibilityOptions.Member,
+                    value: JoinCode
+                )
+                }
+            };
+
+            Lobby lobby = await Lobbies.Instance.CreateLobbyAsync("My Lobby", maxConnections, createLobbyOptions);
+            lobbyId = lobby.Id;
+            StartCoroutine(LobbyHeartbeatCoroutine(15));
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+            throw;
+        }
+
         //Everytime if someone joins the server this method will be called
         NetworkManager.Singleton.ConnectionApprovalCallback += ApprovalCheck;
         NetworkManager.Singleton.OnServerStarted += OnNetworkReady;
@@ -160,5 +188,16 @@ public class ServerManager : NetworkBehaviour
         gameHasStarted = true;
 
         NetworkManager.Singleton.SceneManager.LoadScene(gameplaySceneName, LoadSceneMode.Single);
+    }
+
+    private IEnumerator LobbyHeartbeatCoroutine(float secondsToWaitForNetxtBeat)
+    {
+        var delay = new WaitForSeconds(secondsToWaitForNetxtBeat);
+
+        while (true)
+        {
+            Lobbies.Instance.SendHeartbeatPingAsync(lobbyId);
+            yield return delay;
+        }
     }
 }

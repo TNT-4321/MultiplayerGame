@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,7 +37,7 @@ public class ClientManager : MonoBehaviour
     */
 
     //With Unity Relay System
-    public async void StartClient(string joinCode)
+    public async Task StartClient(string joinCode)
     {
         JoinAllocation allocation;
 
