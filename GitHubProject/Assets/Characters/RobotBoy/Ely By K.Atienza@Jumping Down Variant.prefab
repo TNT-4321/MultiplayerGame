@@ -97,6 +97,18 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
+--- !u!114 &-203650012754435647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5602487655331755388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1076e89d480d3412094ed692a3f1b20d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &880869612557523229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
   m_Animator: {fileID: 1183308358585873852}
---- !u!114 &-203650012754435647
+--- !u!114 &-2656802049349167866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,6 +148,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5602487655331755388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1076e89d480d3412094ed692a3f1b20d, type: 3}
+  m_Script: {fileID: 11500000, guid: 027dd240cf0ef4509a7fe4d2e5b6a346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -19,7 +19,7 @@ public class CharacterSpawner : NetworkBehaviour
             if(character != null)
             {
                 //So that the characters spawn not on top of each other
-                var spawnPos = new Vector3(Random.Range(-3f, 3f), 0f, Random.Range(-3f, 3f));
+                var spawnPos = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
                 //Here we have to set the spawn point positions
                 var characterInstance = Instantiate(character.GameplayPrefab, spawnPos, Quaternion.identity);
                 //Spawn the objects for all the clients as their playerObject | passing the ownership to the client that selected this character

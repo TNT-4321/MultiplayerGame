@@ -16,4 +16,4 @@ MonoBehaviour:
   displayName: The Boss
   icon: {fileID: 21300000, guid: 9aebd705574f9e642aef1e5f59b3e4d8, type: 3}
   introPrefab: {fileID: 2625115769838706243, guid: ac471728bb0964f049b97106253247a2, type: 3}
-  gameplayPrefab: {fileID: 8751838333819508249, guid: d2b367f38aed349248b5eebb8849d279, type: 3}
+  gameplayPrefab: {fileID: 1325944243773351422, guid: a1722c83214854502a04248a1c021f5a, type: 3}
