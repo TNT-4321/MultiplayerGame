@@ -166,8 +166,10 @@ MonoBehaviour:
   sensX: 200
   sensY: 200
   playerCam: {fileID: 3069126577155141167}
-  moveSpeed: 7
+  walkSpeed: 6
+  sprintSpeed: 10
   groundDrag: 5
+  sprintKey: 304
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
@@ -442,3 +444,97 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46253c9914c444b7884323b831217b78, type: 3}
   m_PrefabInstance: {fileID: 6968424143857906281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7815356169411284792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 46253c9914c444b7884323b831217b78, type: 3}
+  m_PrefabInstance: {fileID: 6968424143857906281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7393728670445714994
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7815356169411284792}
+  m_Enabled: 0
+  m_Avatar: {fileID: 9000000, guid: 46253c9914c444b7884323b831217b78, type: 3}
+  m_Controller: {fileID: 9100000, guid: 7abc6fcd6184146a1ae0dd7719053cec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4616247324877176539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7815356169411284792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8deae8091111f4eb30a56c1f4e0d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList:
+  - Layer: 0
+    OriginatingState: 2081823275
+    DestinationState: 765711723
+    TransitionDuration: 0
+    TriggerNameHash: 1282839668
+    TransitionIndex: 0
+  - Layer: 0
+    OriginatingState: 2081823275
+    DestinationState: 125937960
+    TransitionDuration: 0
+    TriggerNameHash: 1749078233
+    TransitionIndex: 2
+  - Layer: 0
+    OriginatingState: 765711723
+    DestinationState: 2081823275
+    TransitionDuration: 0
+    TriggerNameHash: 2081823275
+    TransitionIndex: 0
+  - Layer: 0
+    OriginatingState: 765711723
+    DestinationState: 125937960
+    TransitionDuration: 0.25
+    TriggerNameHash: 1749078233
+    TransitionIndex: 2
+  - Layer: 0
+    OriginatingState: 1748754976
+    DestinationState: 2081823275
+    TransitionDuration: 0
+    TriggerNameHash: 2081823275
+    TransitionIndex: 0
+  - Layer: 0
+    OriginatingState: 1748754976
+    DestinationState: 765711723
+    TransitionDuration: 0
+    TriggerNameHash: 1282839668
+    TransitionIndex: 1
+  - Layer: 0
+    OriginatingState: 1748754976
+    DestinationState: 125937960
+    TransitionDuration: 0
+    TriggerNameHash: 1749078233
+    TransitionIndex: 2
+  - Layer: 0
+    OriginatingState: 125937960
+    DestinationState: 765711723
+    TransitionDuration: 0
+    TriggerNameHash: 1282839668
+    TransitionIndex: 0
+  - Layer: 0
+    OriginatingState: 125937960
+    DestinationState: 2081823275
+    TransitionDuration: 0
+    TriggerNameHash: 2081823275
+    TransitionIndex: 2
+  m_Animator: {fileID: 7393728670445714994}

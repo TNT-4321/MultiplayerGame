@@ -6,6 +6,7 @@ using Unity.Netcode;
 public class PlayerNetworkController : NetworkBehaviour
 {
     [Header("CameraMovement")]
+    [SerializeField] private Vector3 camCenter;
     [SerializeField] private float sensX;
     [SerializeField] private float sensY;
 
@@ -18,11 +19,17 @@ public class PlayerNetworkController : NetworkBehaviour
     {
         FPS,
         ThirdPerson,
-        Car
+        Car,
+        Freezed
     }
 
+    public CamState camState;
+
+
     [Header("PlayerMovement")]
-    [SerializeField] private float moveSpeed = 7f;
+    private float moveSpeed;
+    [SerializeField] private float walkSpeed = 6f;
+    [SerializeField] private float sprintSpeed = 10f;
     [SerializeField] private float groundDrag = 5f;
 
     private float horizontalInput;
@@ -31,10 +38,44 @@ public class PlayerNetworkController : NetworkBehaviour
     private Vector3 moveDirection;
 
     private Rigidbody rigidbody;
+    [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
+
+    public enum PlayerState
+    {
+        Normal,
+        Freezed,
+        Grappling
+    }
+
+    private bool freezedForMoment;
+
+    public PlayerState playerState;
+
+
+    [Header("Grappling")]
+    [SerializeField] private Transform gunTip;
+    [SerializeField] private LayerMask whatIsGrappable;
+    [SerializeField] private LineRenderer lineRenderer;
+
+    [SerializeField] private float maxGrappleDistance;
+    [SerializeField] private float grappleDelayTime;
+
+    private Vector3 grapplePoint;
+
+    [SerializeField] private float grapplingCd;
+    private float grapplingCdTimer;
+
+    [SerializeField] private KeyCode grappleKey = KeyCode.Mouse1;
+    
+    private bool isGrappling;
+
+    public float overshootYAxis;
+
 
     [Header("GroundCheck")]
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private Transform groundCheck;
+
 
     [Header("Jump")]
     [SerializeField] private float jumpForce = 25f;
@@ -44,19 +85,22 @@ public class PlayerNetworkController : NetworkBehaviour
     private bool readyToJump;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
 
+
     [Header("Animation")]
     [SerializeField] private Animator anim;
+
 
     private void Start() 
     {
         //Make the cursor locked in the middle of the screen and invisible
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        HideCursor();
         //Get components
         rigidbody = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         //Set values
         jumpTimer = jumpCooldown;
+        camState = CamState.FPS;
+        playerState = PlayerState.Normal;
     }
 
     private void Update() 
@@ -67,11 +111,33 @@ public class PlayerNetworkController : NetworkBehaviour
             return;
         }
 
-        FPSCameraMovement();
+        switch (camState)
+        {
+            case CamState.FPS:
+                HideCursor();
+                FPSCameraMovement();
+                break;
+            case CamState.ThirdPerson:
+                ThirdPersonCameraMovement();
+                break;
+            case CamState.Freezed:
+                ShowCursor();
+                return;
+        }
 
-        MoveInput();
-        SpeedControl();
-        HandleDrag();
+        switch (playerState)
+        {
+            case PlayerState.Normal:
+                MoveInput();
+                SpeedControl();
+                HandleDrag();
+                
+                StartGrapple();
+                break;
+            case PlayerState.Freezed:
+                rigidbody.velocity = Vector3.zero;
+                return;
+        }
 
         //Reset jump
         jumpTimer -= Time.deltaTime;
@@ -79,6 +145,10 @@ public class PlayerNetworkController : NetworkBehaviour
         {
             readyToJump = true;
         }
+
+        //Grappling timer
+        if(grapplingCdTimer > 0)
+            grapplingCdTimer -= Time.deltaTime;
 
         //For testing
         MakeCursorVisible();
@@ -89,6 +159,17 @@ public class PlayerNetworkController : NetworkBehaviour
        if(!IsOwner) {return;} 
 
        MovePlayer();
+    }
+
+    private void LateUpdate() 
+    {
+        if(isGrappling)
+            lineRenderer.SetPosition(0, gunTip.transform.position);
+    }
+
+    private void StateMashine()
+    {
+        //Handles changing states 
     }
 
     private void MoveInput()
@@ -105,6 +186,10 @@ public class PlayerNetworkController : NetworkBehaviour
 
     private void MovePlayer()
     {
+        if(isGrappling) {return;}
+
+        moveSpeed = (ShouldSprint() ? sprintSpeed : walkSpeed);
+
         //calculate move direction
         moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
 
@@ -114,7 +199,23 @@ public class PlayerNetworkController : NetworkBehaviour
             rigidbody.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         //air movement
         else if(!IsGrounded())
-            rigidbody.AddForce(moveDirection.normalized * moveSpeed * 10f *  airMultiplier, ForceMode.Force);  
+            rigidbody.AddForce(moveDirection.normalized * moveSpeed * 10f *  airMultiplier, ForceMode.Force);
+
+        if(freezedForMoment)
+        {
+            rigidbody.velocity = Vector3.zero;
+        }
+        
+        //Animations
+        /*anim.SetBool("IsRunning", ShouldSprint());  
+        if(moveSpeed == walkSpeed && !ShouldSprint())
+        {
+            anim.SetTrigger("IsWalking");
+        }
+        if(moveSpeed <= 0.1f && IsGrounded())
+        {
+            anim.SetTrigger("Idle");
+        }*/
     }
 
     private void HandleDrag()
@@ -139,8 +240,18 @@ public class PlayerNetworkController : NetworkBehaviour
             
     }
 
+    private bool ShouldSprint()
+    {
+        if(Input.GetKey(sprintKey))
+            return true;
+        else 
+            return false;
+    }
+
     private void SpeedControl()
     {
+        if(isGrappling) { return;}
+
         Vector3 flatVelocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
 
         //limit velocity
@@ -162,12 +273,105 @@ public class PlayerNetworkController : NetworkBehaviour
         jumpTimer = jumpCooldown;
 
         readyToJump = false; 
+
+        //anim.SetTrigger("IsJumping");
     }
 
     private void ResetJump()
     {
         readyToJump = true;
     }
+
+    //---Grappling---//
+    private void StartGrapple()
+    {
+        if(!Input.GetKeyDown(grappleKey)) {return;}
+
+        if(grapplingCdTimer > 0) {return;}
+
+        playerState = PlayerState.Grappling;
+
+        isGrappling = true;
+
+        freezedForMoment = true;
+
+        RaycastHit hit;
+
+        if(Physics.Raycast(playerCam.ViewportPointToRay(camCenter), out hit, maxGrappleDistance, whatIsGrappable))
+        {
+            grapplePoint = hit.point;
+
+            ExecuteGrapple();
+        }
+        else
+        {
+            grapplePoint = playerCam.transform.position + playerCam.transform.forward * maxGrappleDistance;
+
+            StopGrapple();
+            return;
+        }
+
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(1, grapplePoint);
+    }
+
+    private void ExecuteGrapple()
+    {
+        Debug.Log("Execute grapple");
+        freezedForMoment = false;
+
+        Vector3 lowestPoint = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z);
+
+        float grapplePointRelativeYPos = grapplePoint.y - lowestPoint.y;
+        float highestPointOnArc = grapplePointRelativeYPos + overshootYAxis;
+
+        if(grapplePointRelativeYPos < 0) highestPointOnArc = overshootYAxis;
+
+        JumpToPosition(grapplePoint, highestPointOnArc);
+
+        Invoke(nameof(StopGrapple), 1f);
+    }
+
+    private void StopGrapple()
+    {
+        freezedForMoment = false;
+
+        isGrappling = false;
+
+        grapplingCdTimer = grapplingCd;
+
+        lineRenderer.enabled = false;
+
+        playerState = PlayerState.Normal;
+    }
+
+    public Vector3 CalculateJumpVelocity(Vector3 startPoint, Vector3 endPoint, float trajectoryHeight)
+    {
+        float gravity = Physics.gravity.y;
+        float displacementY = endPoint.y - startPoint.y;
+        Vector3 displacementXZ = new Vector3(endPoint.x -  startPoint.x, 0f, endPoint.z - startPoint.z);
+
+        Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * trajectoryHeight);
+        Vector3 velocityXZ = displacementXZ / (Mathf.Sqrt(-2 * trajectoryHeight / gravity)
+            + Mathf.Sqrt(2 * (displacementY - trajectoryHeight) / gravity));
+
+        return velocityXZ + velocityY;
+    }
+
+    private void JumpToPosition(Vector3 targetPosition, float trajectoryHeight)
+    {
+        velocityToSet = CalculateJumpVelocity(transform.position, targetPosition, trajectoryHeight);
+
+        Invoke(nameof(SetVelocity), 0.1f);
+    }
+
+    private Vector3 velocityToSet;
+    private void SetVelocity()
+    {
+        rigidbody.velocity = velocityToSet;
+        Debug.Log("Set");
+    }
+
 
     private void FPSCameraMovement()
     {
@@ -186,6 +390,23 @@ public class PlayerNetworkController : NetworkBehaviour
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 
+    private void ThirdPersonCameraMovement()
+    {
+
+    }
+
+    private void ShowCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    private void HideCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     //Testing
     private bool cursorIsVisible = false;
     private void MakeCursorVisible()
@@ -195,13 +416,11 @@ public class PlayerNetworkController : NetworkBehaviour
 
         if(cursorIsVisible)
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            ShowCursor();
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            HideCursor();
         }
     }
 }

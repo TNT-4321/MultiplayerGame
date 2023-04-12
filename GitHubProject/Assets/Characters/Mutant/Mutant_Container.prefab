@@ -223,8 +223,10 @@ MonoBehaviour:
   sensX: 200
   sensY: 200
   playerCam: {fileID: 954330006261974108}
-  moveSpeed: 7
+  walkSpeed: 6
+  sprintSpeed: 10
   groundDrag: 5
+  sprintKey: 304
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
