@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2642397549481152990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4368554093998324471}
+  m_Layer: 0
+  m_Name: InteractionPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4368554093998324471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2642397549481152990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.1, z: 0.401}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3069126576717101090}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3069126575538806031
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,6 +141,7 @@ GameObject:
   - component: {fileID: 3069126576717101097}
   - component: {fileID: 173762267666167508}
   - component: {fileID: 3252051709531335589}
+  - component: {fileID: 2415704472162231385}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -132,6 +164,7 @@ Transform:
   - {fileID: 7439499821185668482}
   - {fileID: 3069126577411637047}
   - {fileID: 1005068922699009313}
+  - {fileID: 4368554093998324471}
   m_Father: {fileID: 3069126576171714198}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -163,22 +196,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1076e89d480d3412094ed692a3f1b20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camCenter: {x: 0, y: 0, z: 0}
   sensX: 200
   sensY: 200
   playerCam: {fileID: 3069126577155141167}
+  camState: 0
   walkSpeed: 6
   sprintSpeed: 10
   groundDrag: 5
   sprintKey: 304
+  playerState: 0
+  gunTip: {fileID: 0}
+  whatIsGrappable:
+    serializedVersion: 2
+    m_Bits: 0
+  lineRenderer: {fileID: 0}
+  maxGrappleDistance: 0
+  grappleDelayTime: 0
+  grapplingCd: 0
+  grappleKey: 324
+  overshootYAxis: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 1005068922699009313}
-  jumpForce: 20
+  jumpForce: 12
   jumpCooldown: 0.25
   airMultiplier: 0.4
   jumpKey: 32
   anim: {fileID: 0}
+  groundTest: 0
 --- !u!114 &3069126576717101097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +278,26 @@ CapsuleCollider:
   m_Height: 1.9490521
   m_Direction: 1
   m_Center: {x: 0, y: -0.15860116, z: 0}
+--- !u!114 &2415704472162231385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3069126576717101091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bfb43a87417549bd951aa86bf72f378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3069126576717101103}
+  interactionPoint: {fileID: 4368554093998324471}
+  interactionPointRadius: 0.5
+  interactionLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  interactKey: 324
+  numCollidersFound: 0
 --- !u!1 &3069126577155141154
 GameObject:
   m_ObjectHideFlags: 0

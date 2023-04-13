@@ -103,6 +103,8 @@ public class PlayerNetworkController : NetworkBehaviour
         playerState = PlayerState.Normal;
     }
 
+    public bool groundTest;
+
     private void Update() 
     {
         if(!IsOwner)
@@ -138,6 +140,11 @@ public class PlayerNetworkController : NetworkBehaviour
                 rigidbody.velocity = Vector3.zero;
                 return;
         }
+
+        if(IsGrounded())
+            groundTest = true;
+        else
+            groundTest = false;
 
         //Reset jump
         jumpTimer -= Time.deltaTime;
@@ -233,11 +240,13 @@ public class PlayerNetworkController : NetworkBehaviour
     
     private bool IsGrounded()
     {
-        if(Physics.CheckSphere(groundCheck.transform.position, 0.2f, whatIsGround))
-            return true;
-        else
-            return true;
-            
+        return Physics.CheckSphere(groundCheck.transform.position, 0.2f, whatIsGround);        
+    }
+
+    private void OnDrawGizmos() 
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.transform.position, 0.2f);
     }
 
     private bool ShouldSprint()

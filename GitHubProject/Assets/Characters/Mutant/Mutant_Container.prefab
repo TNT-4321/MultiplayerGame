@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 2720349638978477223}
   - component: {fileID: 4846255187727405880}
   - component: {fileID: 5053601087840061865}
+  - component: {fileID: 8357575974883734424}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -151,6 +152,7 @@ Transform:
   - {fileID: 4666386960656318806}
   - {fileID: 954330007712209502}
   - {fileID: 954330006012794180}
+  - {fileID: 3574047607704773289}
   m_Father: {fileID: 954330007253691621}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -220,22 +222,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1076e89d480d3412094ed692a3f1b20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camCenter: {x: 0, y: 0, z: 0}
   sensX: 200
   sensY: 200
   playerCam: {fileID: 954330006261974108}
+  camState: 0
   walkSpeed: 6
   sprintSpeed: 10
   groundDrag: 5
   sprintKey: 304
+  playerState: 0
+  gunTip: {fileID: 0}
+  whatIsGrappable:
+    serializedVersion: 2
+    m_Bits: 0
+  lineRenderer: {fileID: 0}
+  maxGrappleDistance: 0
+  grappleDelayTime: 0
+  grapplingCd: 0
+  grappleKey: 324
+  overshootYAxis: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 954330007712209502}
-  jumpForce: 20
+  jumpForce: 12
   jumpCooldown: 0.25
   airMultiplier: 0.4
   jumpKey: 32
   anim: {fileID: 0}
+  groundTest: 0
 --- !u!136 &5053601087840061865
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -250,6 +266,26 @@ CapsuleCollider:
   m_Height: 2.6809838
   m_Direction: 1
   m_Center: {x: 0, y: -0.15470278, z: 0}
+--- !u!114 &8357575974883734424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954330006708408912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bfb43a87417549bd951aa86bf72f378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4846255187727405880}
+  interactionPoint: {fileID: 3574047607704773289}
+  interactionPointRadius: 0.5
+  interactionLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  interactKey: 324
+  numCollidersFound: 0
 --- !u!1 &954330007253691620
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +413,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHead: {fileID: 954330006012794180}
+--- !u!1 &8820604059814115304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3574047607704773289}
+  m_Layer: 0
+  m_Name: InteractionPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3574047607704773289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8820604059814115304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 954330006708408913}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5136618480028755645
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2141657329962142583}
   - component: {fileID: 2141657329962142582}
   - component: {fileID: 8690910747798221282}
+  - component: {fileID: 3556017649223268764}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -119,6 +120,7 @@ Transform:
   - {fileID: 2141657330338345192}
   - {fileID: 2141657330186867658}
   - {fileID: 2141657331234182609}
+  - {fileID: 3635660380703083725}
   m_Father: {fileID: 2141657330807454588}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -184,13 +186,14 @@ MonoBehaviour:
   overshootYAxis: 0
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
-  groundCheck: {fileID: 0}
-  jumpForce: 25
+    m_Bits: 64
+  groundCheck: {fileID: 2141657330186867658}
+  jumpForce: 12
   jumpCooldown: 0.25
   airMultiplier: 0.4
   jumpKey: 32
   anim: {fileID: 0}
+  groundTest: 0
 --- !u!114 &8690910747798221282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,17 +209,37 @@ MonoBehaviour:
   SyncPositionX: 1
   SyncPositionY: 1
   SyncPositionZ: 1
-  SyncRotAngleX: 1
+  SyncRotAngleX: 0
   SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
+  SyncRotAngleZ: 0
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
+--- !u!114 &3556017649223268764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141657329962142587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bfb43a87417549bd951aa86bf72f378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2141657329962142582}
+  interactionPoint: {fileID: 3635660380703083725}
+  interactionPointRadius: 2.5
+  interactionLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  interactKey: 324
+  numCollidersFound: 0
 --- !u!1 &2141657330186867661
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141657330186867661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -10.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -474,6 +497,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHead: {fileID: 2141657330338345192}
+--- !u!1 &5841742441277630914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3635660380703083725}
+  m_Layer: 0
+  m_Name: InteractionPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3635660380703083725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841742441277630914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -10, z: 3.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2141657329962142584}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1123610515769992247
 PrefabInstance:
   m_ObjectHideFlags: 0
