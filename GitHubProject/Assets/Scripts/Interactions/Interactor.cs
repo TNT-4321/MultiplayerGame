@@ -15,6 +15,9 @@ public class Interactor : MonoBehaviour
     private readonly Collider[] colliders = new Collider[2];
     [SerializeField] private int numCollidersFound;
 
+    [Header("IngameCurrency")]
+    public Currency currency;
+
     private void Update() 
     {
         numCollidersFound = Physics.OverlapSphereNonAlloc(interactionPoint.transform.position, interactionPointRadius, colliders, interactionLayer);

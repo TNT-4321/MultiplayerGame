@@ -11,6 +11,8 @@ public class Chest : MonoBehaviour, IInteractable
 
     public bool canBeInteractedWith => isInteractable;
 
+    private int coinsInChest;
+
     private void Start() 
     {
         isInteractable = true;
@@ -20,7 +22,9 @@ public class Chest : MonoBehaviour, IInteractable
     {
         Debug.Log("Opening chest");
 
+        coinsInChest = Random.Range(1, 20);
         interactor.transform.position = new Vector3(5f, 5f, 0);
+        interactor.currency.AddCoins(coinsInChest);
 
         return true;
     }
