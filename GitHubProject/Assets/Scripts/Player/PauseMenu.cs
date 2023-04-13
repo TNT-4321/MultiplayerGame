@@ -8,8 +8,8 @@ public class PauseMenu : NetworkBehaviour
     public PlayerNetworkController networkPlayer;
 
     [SerializeField] private KeyCode pauseKey = KeyCode.P;
-    [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private GameObject gameView;
+    //[SerializeField] private GameObject pauseMenu;
+    //[SerializeField] private GameObject gameView;
     
     private bool paused;
 
@@ -41,8 +41,8 @@ public class PauseMenu : NetworkBehaviour
 
     public void OpenMenu()
     {
-        pauseMenu.SetActive(true);
-        gameView.SetActive(false);
+        //pauseMenu.SetActive(true);
+       // gameView.SetActive(false);
 
         networkPlayer.playerState = PlayerNetworkController.PlayerState.Freezed;
         networkPlayer.camState = PlayerNetworkController.CamState.Freezed;
@@ -50,8 +50,8 @@ public class PauseMenu : NetworkBehaviour
 
     public void CloseMenu()
     {
-        gameView.SetActive(true);
-        pauseMenu.SetActive(false);
+       // gameView.SetActive(true);
+        //pauseMenu.SetActive(false);
 
         networkPlayer.playerState = PlayerNetworkController.PlayerState.Normal;
         networkPlayer.camState = PlayerNetworkController.CamState.FPS;
@@ -65,5 +65,10 @@ public class PauseMenu : NetworkBehaviour
     private void MenuContent()
     {
 
+    }
+
+    public void ButtonTest()
+    {
+        Debug.Log("Was pressed");
     }
 }

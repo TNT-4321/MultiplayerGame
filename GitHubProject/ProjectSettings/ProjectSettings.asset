@@ -725,11 +725,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: a9adfa1f-432d-472a-bd08-a493deea14f3
+  cloudProjectId: 46aaa854-c173-4dcc-ad71-42edaf57c8d2
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: GitHubProject
-  organizationId: finnjasthepro
+  projectName: GitHubProject (1)
+  organizationId: tnt-4321
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
