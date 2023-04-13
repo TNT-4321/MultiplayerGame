@@ -132,7 +132,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141657329962142587}
   serializedVersion: 2
-  m_Mass: 1.5
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -169,8 +169,8 @@ MonoBehaviour:
   sensY: 200
   playerCam: {fileID: 2141657329534094073}
   camState: 0
-  walkSpeed: 6
-  sprintSpeed: 10
+  walkSpeed: 16
+  sprintSpeed: 20
   groundDrag: 5
   sprintKey: 304
   playerState: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 2141657330186867658}
-  jumpForce: 12
+  jumpForce: 50
   jumpCooldown: 0.25
   airMultiplier: 0.4
   jumpKey: 32
@@ -295,7 +295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141657330338345195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.46, z: 0}
+  m_LocalPosition: {x: 0, y: 7.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 2141657330807454588}
   - component: {fileID: 7884375963986835410}
   m_Layer: 0
-  m_Name: ThiccBoi
+  m_Name: ThiccBoi_Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
