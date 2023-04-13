@@ -1797,7 +1797,7 @@ GameObject:
   - component: {fileID: 4103938801213709956}
   - component: {fileID: 7932020146228741374}
   m_Layer: 0
-  m_Name: PiratePrefab
+  m_Name: PirateBoy_Intro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

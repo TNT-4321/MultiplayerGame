@@ -16,4 +16,4 @@ MonoBehaviour:
   displayName: Karate Kid
   icon: {fileID: 21300000, guid: a6fbd5a181bc51e42a61a73fe8d727c8, type: 3}
   introPrefab: {fileID: 7166233666004766491, guid: 16d8201cbe1ed48d68d10954bfb48f1b, type: 3}
-  gameplayPrefab: {fileID: 880869612557523229, guid: 45da45408946945edaaf004fa2d9ff30, type: 3}
+  gameplayPrefab: {fileID: 1105113402101285555, guid: 96dde7f4db262418d862353bc841fedb, type: 3}

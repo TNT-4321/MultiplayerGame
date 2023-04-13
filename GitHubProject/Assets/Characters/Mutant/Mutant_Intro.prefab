@@ -1001,7 +1001,7 @@ GameObject:
   - component: {fileID: 7451092485569234476}
   - component: {fileID: 4613313014051292623}
   m_Layer: 0
-  m_Name: Mutant@Punching
+  m_Name: Mutant_Intro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
