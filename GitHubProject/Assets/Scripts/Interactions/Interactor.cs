@@ -15,6 +15,8 @@ public class Interactor : MonoBehaviour
     private readonly Collider[] colliders = new Collider[2];
     [SerializeField] private int numCollidersFound;
 
+    private ICar currentCar = null;
+
     [Header("IngameCurrency")]
     public Currency currency;
 
@@ -25,6 +27,7 @@ public class Interactor : MonoBehaviour
         if(numCollidersFound > 0)
         {
             var interactable = colliders[0].GetComponent<IInteractable>();
+            currentCar = colliders[0].GetComponent<ICar>();
 
             if(!interactable.canBeInteractedWith) {return;}
 
@@ -32,7 +35,21 @@ public class Interactor : MonoBehaviour
             {
                 interactable.Interact(this);
             }
-        }   
+        }
+
+        
+
+        if(currentCar != null)
+        {
+            currentCar.StartDriving(player);
+
+            if(Input.GetKeyDown(KeyCode.N))
+            {
+            currentCar.StopDriving(player);
+            currentCar = null;
+            Debug.Log("Car null");
+            }
+        }
     }
 
     private void OnDrawGizmos() 

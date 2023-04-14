@@ -11,6 +11,7 @@ public class PlayerNetworkController : NetworkBehaviour
     [SerializeField] private float sensY;
 
     [SerializeField] private Camera playerCam;
+    public CameraController camController;
 
     private float xRotation;
     private float yRotation;
@@ -44,7 +45,8 @@ public class PlayerNetworkController : NetworkBehaviour
     {
         Normal,
         Freezed,
-        Grappling
+        Grappling,
+        Driving
     }
 
     private bool freezedForMoment;
@@ -70,6 +72,9 @@ public class PlayerNetworkController : NetworkBehaviour
     private bool isGrappling;
 
     public float overshootYAxis;
+
+    [Header("Driving")]
+    public Transform driverSeatPosition;
 
 
     [Header("GroundCheck")]
@@ -133,6 +138,9 @@ public class PlayerNetworkController : NetworkBehaviour
                 HandleDrag();
                 
                 StartGrapple();
+                break;
+            case PlayerState.Driving:
+                Driving();
                 break;
             case PlayerState.Freezed:
                 rigidbody.velocity = Vector3.zero;
@@ -284,6 +292,7 @@ public class PlayerNetworkController : NetworkBehaviour
         readyToJump = true;
     }
 
+
     //---Grappling---//
     private void StartGrapple()
     {
@@ -375,6 +384,14 @@ public class PlayerNetworkController : NetworkBehaviour
     }
 
 
+    private void Driving()
+    {
+        transform.position = driverSeatPosition.transform.position;
+        transform.rotation = driverSeatPosition.transform.rotation;
+        rigidbody.velocity = Vector3.zero;
+    }
+
+
     private void FPSCameraMovement()
     {
         //get mouse input
@@ -393,6 +410,11 @@ public class PlayerNetworkController : NetworkBehaviour
     }
 
     private void ThirdPersonCameraMovement()
+    {
+
+    }
+
+    private void DrivingCameraMovement()
     {
 
     }

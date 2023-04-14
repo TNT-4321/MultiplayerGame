@@ -977,6 +977,7 @@ MonoBehaviour:
   sensX: 200
   sensY: 200
   playerCam: {fileID: 7181139709381193651}
+  camController: {fileID: 7181139709833760082}
   camState: 0
   walkSpeed: 6
   sprintSpeed: 10
@@ -993,6 +994,7 @@ MonoBehaviour:
   grapplingCd: 1
   grappleKey: 323
   overshootYAxis: 2
+  driverSeatPosition: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
@@ -1195,6 +1197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHead: {fileID: 7181139708574848418}
+  followState: 0
 --- !u!1 &7181139710117436981
 GameObject:
   m_ObjectHideFlags: 0
