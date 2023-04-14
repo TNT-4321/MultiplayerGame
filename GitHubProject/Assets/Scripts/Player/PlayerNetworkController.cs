@@ -33,8 +33,8 @@ public class PlayerNetworkController : NetworkBehaviour
     [SerializeField] private float sprintSpeed = 10f;
     [SerializeField] private float groundDrag = 5f;
 
-    private float horizontalInput;
-    private float verticalInput;
+    public float horizontalInput;
+    public float verticalInput;
 
     private Vector3 moveDirection;
 
@@ -134,12 +134,14 @@ public class PlayerNetworkController : NetworkBehaviour
         {
             case PlayerState.Normal:
                 MoveInput();
+                JumpInput();
                 SpeedControl();
                 HandleDrag();
                 
                 StartGrapple();
                 break;
             case PlayerState.Driving:
+                MoveInput();
                 Driving();
                 break;
             case PlayerState.Freezed:
@@ -180,11 +182,15 @@ public class PlayerNetworkController : NetworkBehaviour
         //Handles changing states 
     }
 
+    //Need this for the car
     private void MoveInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+    }
 
+    private void JumpInput()
+    {
         //Jump
         if(Input.GetKeyDown(jumpKey) && readyToJump && IsGrounded())
         {

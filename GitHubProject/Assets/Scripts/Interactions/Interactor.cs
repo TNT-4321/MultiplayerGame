@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class Interactor : MonoBehaviour
+public class Interactor : NetworkBehaviour
 {
     public PlayerNetworkController player;
 
@@ -22,6 +23,8 @@ public class Interactor : MonoBehaviour
 
     private void Update() 
     {
+        if(!IsOwner) {return;}
+
         numCollidersFound = Physics.OverlapSphereNonAlloc(interactionPoint.transform.position, interactionPointRadius, colliders, interactionLayer);
 
         if(numCollidersFound > 0)
