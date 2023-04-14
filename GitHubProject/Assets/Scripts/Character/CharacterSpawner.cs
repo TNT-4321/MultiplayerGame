@@ -23,7 +23,7 @@ public class CharacterSpawner : NetworkBehaviour
                 //Here we have to set the spawn point positions
                 var characterInstance = Instantiate(character.GameplayPrefab, spawnPos, Quaternion.identity);
                 //Spawn the objects for all the clients as their playerObject | passing the ownership to the client that selected this character
-                characterInstance.SpawnAsPlayerObject(client.Value.clientId);
+                ServerManager.Instance.SpawnAPlayerObject(characterInstance, client.Value.clientId);
             }
         }
     }
