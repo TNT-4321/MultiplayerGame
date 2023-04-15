@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   displayName: ThiccBoi
-  icon: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
+  icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   introPrefab: {fileID: 7343509131879476556, guid: aa63d179e3c63459c800cfea3a3c842d, type: 3}
   gameplayPrefab: {fileID: 7884375963986835410, guid: 1a4e2b6c21807bc4e91d6d1fbbf7193a, type: 3}

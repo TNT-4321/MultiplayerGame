@@ -5,9 +5,6 @@ using Unity.Netcode;
 
 public class PlayerNetworkController : NetworkBehaviour
 {
-    [Header("PlayerObjects")]
-    [SerializeField] private NetworkObject car;
-
     [Header("CameraMovement")]
     [SerializeField] private Vector3 camCenter;
     [SerializeField] private float sensX;
@@ -454,14 +451,6 @@ public class PlayerNetworkController : NetworkBehaviour
         else
         {
             HideCursor();
-        }
-    }
-
-    private void ChangePlayer()
-    {
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            //ServerManager.Instance.SpawnAPlayerObject(car, clientId);
         }
     }
 }

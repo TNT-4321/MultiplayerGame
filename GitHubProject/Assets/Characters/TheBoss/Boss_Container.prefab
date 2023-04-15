@@ -973,6 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1076e89d480d3412094ed692a3f1b20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  car: {fileID: 5942707631441101898, guid: 496c19b9ef9174c389e702ad6cefb849, type: 3}
   camCenter: {x: 0.5, y: 0.5, z: 0}
   sensX: 200
   sensY: 200

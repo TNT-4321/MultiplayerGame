@@ -14,8 +14,11 @@ public class CharacterSpawner : NetworkBehaviour
 
         foreach (var client in ServerManager.Instance.ClientData)
         {
+            Debug.Log("Something happens");
             var character =  database.GetCharacterById(client.Value.characterId);
             //var characterClass = databaseClass.GetCharacterById(client.Value.characterId);
+            if(character == null)
+                Debug.Log("Character null");
             if(character != null)
             {
                 //So that the characters spawn not on top of each other
@@ -23,8 +26,9 @@ public class CharacterSpawner : NetworkBehaviour
                 //Here we have to set the spawn point positions
                 var characterInstance = Instantiate(character.GameplayPrefab, spawnPos, Quaternion.identity);
                 //Spawn the objects for all the clients as their playerObject | passing the ownership to the client that selected this character
-                ServerManager.Instance.SpawnAPlayerObject(characterInstance, client.Value.clientId);
+                characterInstance.SpawnAsPlayerObject(client.Value.clientId);
             }
+            
         }
     }
 }
