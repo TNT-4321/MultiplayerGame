@@ -5,6 +5,9 @@ using Unity.Netcode;
 
 public class PlayerNetworkController : NetworkBehaviour
 {
+    [Header("Authentification")]
+    public ulong clientId;
+
     [Header("CameraMovement")]
     [SerializeField] private Vector3 camCenter;
     [SerializeField] private float sensX;
@@ -97,6 +100,8 @@ public class PlayerNetworkController : NetworkBehaviour
 
     private void Start() 
     {
+        //Set the clientId
+        GetThisClientsIdServerRpc();
         //Make the cursor locked in the middle of the screen and invisible
         HideCursor();
         //Get components
@@ -162,6 +167,10 @@ public class PlayerNetworkController : NetworkBehaviour
 
         //For testing
         MakeCursorVisible();
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            Debug.Log("Here massage to GameManager for changing players");
+        }
     }
 
     private void FixedUpdate() 
@@ -452,5 +461,13 @@ public class PlayerNetworkController : NetworkBehaviour
         {
             HideCursor();
         }
+    }
+
+    [ServerRpc]
+    private void GetThisClientsIdServerRpc(ServerRpcParams serverRpcParams = default)
+    {
+        Debug.Log("Get id");
+        var senderClientId = serverRpcParams.Receive.SenderClientId;
+        clientId = senderClientId;
     }
 }
