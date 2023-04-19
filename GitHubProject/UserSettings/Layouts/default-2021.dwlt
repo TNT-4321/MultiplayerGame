@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
+<<<<<<< HEAD
+    x: 610
+    y: 182
+    width: 1481
+    height: 834
+=======
     x: 1428
     y: 429
     width: 641
@@ -42,12 +48,19 @@ MonoBehaviour:
     y: 316
     width: 1423
     height: 835
+<<<<<<< HEAD
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
   m_ShowMode: 4
-  m_Title: Hierarchy
-  m_RootView: {fileID: 7}
+  m_Title: Console
+  m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 0
+<<<<<<< HEAD
+--- !u!114 &2
+=======
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -99,6 +112,7 @@ MonoBehaviour:
   vertical: 0
   controlID: 94
 --- !u!114 &5
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,18 +128,30 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
+<<<<<<< HEAD
+    y: 381
+    width: 345
+    height: 403
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 15}
+=======
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
     y: 381.5
     width: 455
     height: 403.5
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
   m_Panes:
-  - {fileID: 22}
-  - {fileID: 19}
+  - {fileID: 18}
+  - {fileID: 15}
   m_Selected: 1
   m_LastSelected: 0
---- !u!114 &6
+--- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,8 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 13}
-  - {fileID: 5}
+  - {fileID: 10}
+  - {fileID: 2}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -149,8 +175,16 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
+<<<<<<< HEAD
+<<<<<<< HEAD
+  controlID: 20
+--- !u!114 &4
+=======
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
   controlID: 64
 --- !u!114 &7
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,9 +197,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 8}
-  - {fileID: 9}
-  - {fileID: 10}
+  - {fileID: 5}
+  - {fileID: 6}
+  - {fileID: 7}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -178,7 +212,7 @@ MonoBehaviour:
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &8
+--- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,7 +234,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &9
+--- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,9 +247,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 6}
-  - {fileID: 11}
-  - {fileID: 12}
+  - {fileID: 3}
+  - {fileID: 8}
+  - {fileID: 9}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -225,8 +259,16 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< HEAD
+<<<<<<< HEAD
+  controlID: 19
+--- !u!114 &7
+=======
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
   controlID: 188
 --- !u!114 &10
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,7 +289,7 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &11
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,8 +302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 14}
-  - {fileID: 15}
+  - {fileID: 11}
+  - {fileID: 12}
   m_Position:
     serializedVersion: 2
     x: 455
@@ -271,8 +313,16 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
+<<<<<<< HEAD
+<<<<<<< HEAD
+  controlID: 73
+--- !u!114 &9
+=======
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
   controlID: 189
 --- !u!114 &12
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,16 +339,27 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1323
     y: 0
+<<<<<<< HEAD
+<<<<<<< HEAD
+    width: 451
+    height: 784
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 17}
+=======
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
     width: 100
     height: 785
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
   m_Panes:
-  - {fileID: 21}
+  - {fileID: 17}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &13
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,12 +380,12 @@ MonoBehaviour:
     height: 381.5
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 20}
+  m_ActualView: {fileID: 16}
   m_Panes:
-  - {fileID: 20}
+  - {fileID: 16}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &14
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -345,13 +406,13 @@ MonoBehaviour:
     height: 379
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 23}
+  m_ActualView: {fileID: 19}
   m_Panes:
-  - {fileID: 23}
-  - {fileID: 17}
+  - {fileID: 19}
+  - {fileID: 13}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &15
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -367,68 +428,29 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
+<<<<<<< HEAD
+    y: 378.5
+    width: 685
+    height: 405.5
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 14}
+=======
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
     y: 379
     width: 868
     height: 406
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
   m_Panes:
-  - {fileID: 18}
+  - {fileID: 14}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &16
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12043, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 640, y: 580}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Build Settings
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 1428
-    y: 429
-    width: 641
-    height: 582
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-    m_OverlaysVisible: 1
-  m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 0}
-    m_SearchString: 
---- !u!114 &17
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -474,7 +496,7 @@ MonoBehaviour:
   m_CurrentEditor: 0
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &18
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -494,10 +516,23 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+    x: 955
+    y: 590.5
+    width: 683
+    height: 384.5
+=======
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
     x: 920
     y: 725
     width: 866
     height: 385
+<<<<<<< HEAD
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -567,7 +602,7 @@ MonoBehaviour:
   m_LowResolutionForAspectRatios: 00000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &19
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -587,16 +622,29 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+    x: 610
+    y: 593
+    width: 344
+    height: 382
+=======
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
     x: 0
     y: 400.5
     width: 454
     height: 382.5
+<<<<<<< HEAD
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
---- !u!114 &20
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -616,10 +664,23 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+    x: 610
+    y: 212
+    width: 344
+    height: 360
+=======
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
     x: 465
     y: 346
     width: 454
     height: 360.5
+<<<<<<< HEAD
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -630,7 +691,15 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD
+<<<<<<< HEAD
+      m_ExpandedIDs: 44ebffff74f3ffffcaf3ffff2af6ffff12f7ffff22f8ffff18fbffff
+=======
       m_ExpandedIDs: fe9bffff549cffffae9cffff929dffffa29effffb6b5ffff0cb6ffff66b6ffff4ab7ffff5ab8ffffb8c0ffff0ec1ffff68c1ffff4cc2ffff5cc3ffff90ccffffe6ccffff40cdffff24ceffff34cfffff04eaffff5aeaffffb4eaffff98ebffffa8ecffff64f3ffffbaf3ffff1af6ffff02f7ffff12f8ffff18fbffff
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
+=======
+      m_ExpandedIDs: fe9bffff549cffffae9cffff929dffffa29effffb6b5ffff0cb6ffff66b6ffff4ab7ffff5ab8ffffb8c0ffff0ec1ffff68c1ffff4cc2ffff5cc3ffff90ccffffe6ccffff40cdffff24ceffff34cfffff04eaffff5aeaffffb4eaffff98ebffffa8ecffff64f3ffffbaf3ffff1af6ffff02f7ffff12f8ffff18fbffff
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -654,7 +723,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 10d2558324d4f4d08bfc76d1048f95b3
---- !u!114 &21
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -674,10 +743,23 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+    x: 1640
+    y: 212
+    width: 450
+    height: 763
+=======
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
     x: 1324
     y: 19
     width: 99
     height: 764
+<<<<<<< HEAD
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -696,7 +778,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &22
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -751,9 +833,21 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
+    m_SelectedIDs: 666c0000
+    m_LastClickedID: 27750
+    m_ExpandedIDs: 0000000072790000
+=======
     m_SelectedIDs: ee800000
     m_LastClickedID: 33006
     m_ExpandedIDs: 0000000086790000887900008a790000
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
+=======
+    m_SelectedIDs: ee800000
+    m_LastClickedID: 33006
+    m_ExpandedIDs: 0000000086790000887900008a790000
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -781,7 +875,15 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
+<<<<<<< HEAD
+    m_ExpandedIDs: 0000000072790000
+=======
     m_ExpandedIDs: 0000000086790000887900008a790000
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
+=======
+    m_ExpandedIDs: 0000000086790000887900008a790000
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -825,7 +927,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 5}
+      m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -837,7 +939,7 @@ MonoBehaviour:
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 223
---- !u!114 &23
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -857,10 +959,23 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+    x: 955
+    y: 212
+    width: 683
+    height: 357.5
+=======
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
     x: 920
     y: 346
     width: 866
     height: 358
+<<<<<<< HEAD
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
+=======
+>>>>>>> parent of 96928c4 (ChangedVersionBackToOlderversion)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default

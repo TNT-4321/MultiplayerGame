@@ -6,7 +6,7 @@ using Unity.Netcode;
 public class PlayerNetworkController : NetworkBehaviour
 {
     [Header("Authentification")]
-    public ulong clientId;
+    //public ulong clientId = NetworkManager.Singleton.LocalClientId;
 
     [Header("CameraMovement")]
     [SerializeField] private Vector3 camCenter;
@@ -100,8 +100,6 @@ public class PlayerNetworkController : NetworkBehaviour
 
     private void Start() 
     {
-        //Set the clientId
-        GetThisClientsIdServerRpc();
         //Make the cursor locked in the middle of the screen and invisible
         HideCursor();
         //Get components
@@ -461,13 +459,5 @@ public class PlayerNetworkController : NetworkBehaviour
         {
             HideCursor();
         }
-    }
-
-    [ServerRpc]
-    private void GetThisClientsIdServerRpc(ServerRpcParams serverRpcParams = default)
-    {
-        Debug.Log("Get id");
-        var senderClientId = serverRpcParams.Receive.SenderClientId;
-        clientId = senderClientId;
     }
 }

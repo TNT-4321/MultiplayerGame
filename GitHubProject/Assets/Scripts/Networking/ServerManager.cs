@@ -136,11 +136,6 @@ public class ServerManager : NetworkBehaviour
         NetworkManager.Singleton.StartHost();
     }
 
-    public void SpawnAPlayerObject(NetworkObject objectToSpawnAsPlayerObject, ulong idOfNewOwner)
-    {
-        objectToSpawnAsPlayerObject.SpawnAsPlayerObject(idOfNewOwner);
-    }
-
     private void ApprovalCheck(NetworkManager.ConnectionApprovalRequest request, NetworkManager.ConnectionApprovalResponse response)
     {
         if(ClientData.Count >= maxPlayersToJoinAGame || gameHasStarted)
