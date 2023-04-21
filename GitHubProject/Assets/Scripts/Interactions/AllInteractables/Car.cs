@@ -52,10 +52,6 @@ public class Car : Interactable
     {
         if(!IsOwner) {return;}
 
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log("Joooooo");
-        }
         if(Input.GetKeyDown(KeyCode.N))
         {
             ExitCar();

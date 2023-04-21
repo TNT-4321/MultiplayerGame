@@ -9,10 +9,16 @@ public class Interactor : NetworkBehaviour
     [SerializeField] private KeyCode interactionKey = KeyCode.E;
     private Interactable currentFocusedInteractable;
     private Car myCar;
+    public Currency myCurrency;
     [SerializeField] private Vector3 rayPoint;
     [SerializeField] private float interactionRange;
     [SerializeField] private Camera playerCam;
     [SerializeField] private LayerMask interactablesLayer;
+
+    private void Start() 
+    {
+        myCurrency = GetComponent<Currency>();
+    }
     
     private void Update() 
     {
@@ -59,7 +65,7 @@ public class Interactor : NetworkBehaviour
     private void ChangeOwnershipServerRpc()
     {
         if(myCar == null) return;
-        
+
         myCar.ChangeOwnership(NetworkManager.Singleton.LocalClientId);
     }
 }
