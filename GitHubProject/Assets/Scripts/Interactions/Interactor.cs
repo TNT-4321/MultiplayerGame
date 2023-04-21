@@ -6,10 +6,60 @@ using Unity.Netcode;
 
 public class Interactor : NetworkBehaviour
 {
+    [SerializeField] private KeyCode interactionKey = KeyCode.E;
+    private Interactable currentFocusedInteractable;
+    private Car myCar;
+    [SerializeField] private Vector3 rayPoint;
+    [SerializeField] private float interactionRange;
+    [SerializeField] private Camera playerCam;
+    [SerializeField] private LayerMask interactablesLayer;
+    
     private void Update() 
     {
         if(!IsOwner) {return;}
 
+        InteractionCheck();
+        InteractionInput();
+    }
+
+    private void InteractionCheck()
+    {
+        if(Physics.Raycast(playerCam.ViewportPointToRay(rayPoint),out RaycastHit hit, interactionRange, interactablesLayer))
+        {
+            //We found an interactable and set it to our currentInteractable
+            hit.collider.TryGetComponent(out currentFocusedInteractable);
+            Debug.Log("this is" + currentFocusedInteractable);
+        }
+        else if (currentFocusedInteractable)
+        {
+            //We did not find an interactable
+            currentFocusedInteractable = null;
+        }
+    }
+
+    private void InteractionInput()
+    {
+        if(Input.GetKeyDown(interactionKey) && currentFocusedInteractable != null && currentFocusedInteractable.canBeInteractedWith)
+        {
+            Debug.Log("Hello");
+            currentFocusedInteractable.OnInteraction(this);
+
+            currentFocusedInteractable.TryGetComponent(out myCar);
+
+            if(myCar != null)
+            {
+                if(!IsServer) {return;}
+
+                myCar.ChangeOwnership(NetworkManager.Singleton.LocalClientId);
+            }
+        }
+    }
+
+    [ServerRpc]
+    private void ChangeOwnershipServerRpc()
+    {
+        if(myCar == null) return;
         
+        myCar.ChangeOwnership(NetworkManager.Singleton.LocalClientId);
     }
 }

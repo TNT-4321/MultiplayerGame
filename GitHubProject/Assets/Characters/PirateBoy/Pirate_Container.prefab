@@ -362,6 +362,8 @@ MonoBehaviour:
   walkSpeed: 6
   sprintSpeed: 10
   groundDrag: 5
+  horizontalInput: 0
+  verticalInput: 0
   sprintKey: 304
   playerState: 0
   gunTip: {fileID: 4969367989728319985}
@@ -410,15 +412,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfb43a87417549bd951aa86bf72f378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5017362576121739611}
-  interactionPoint: {fileID: 2369040328384871095}
-  interactionPointRadius: 0.5
-  interactionLayer:
+  interactionKey: 101
+  rayPoint: {x: 0.5, y: 0.5, z: 0}
+  interactionRange: 2
+  playerCam: {fileID: 5017362576228464852}
+  interactablesLayer:
     serializedVersion: 2
     m_Bits: 128
-  interactKey: 324
-  numCollidersFound: 0
-  currency: {fileID: 0}
 --- !u!1 &5017362576228464855
 GameObject:
   m_ObjectHideFlags: 0

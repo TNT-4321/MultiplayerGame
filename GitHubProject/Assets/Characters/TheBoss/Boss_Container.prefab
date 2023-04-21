@@ -973,7 +973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1076e89d480d3412094ed692a3f1b20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: {fileID: 5942707631441101898, guid: 496c19b9ef9174c389e702ad6cefb849, type: 3}
   camCenter: {x: 0.5, y: 0.5, z: 0}
   sensX: 200
   sensY: 200
@@ -1033,15 +1032,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfb43a87417549bd951aa86bf72f378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7181139709285019196}
-  interactionPoint: {fileID: 498014492568186320}
-  interactionPointRadius: 0.5
-  interactionLayer:
+  interactionKey: 101
+  rayPoint: {x: 0.5, y: 0.5, z: 0}
+  interactionRange: 2
+  playerCam: {fileID: 7181139709381193651}
+  interactablesLayer:
     serializedVersion: 2
     m_Bits: 128
-  interactKey: 324
-  numCollidersFound: 0
-  currency: {fileID: 3199060118532400143}
 --- !u!114 &3199060118532400143
 MonoBehaviour:
   m_ObjectHideFlags: 0
