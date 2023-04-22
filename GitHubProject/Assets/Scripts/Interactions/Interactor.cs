@@ -53,19 +53,7 @@ public class Interactor : NetworkBehaviour
             currentFocusedInteractable.TryGetComponent(out myCar);
 
             if(myCar != null)
-            {
-                if(!IsServer) {return;}
-
-                myCar.ChangeOwnership(NetworkManager.Singleton.LocalClientId);
-            }
+                myCar.ChangeOwnershipServerRpc(NetworkManager.Singleton.LocalClientId);
         }
-    }
-
-    [ServerRpc]
-    private void ChangeOwnershipServerRpc()
-    {
-        if(myCar == null) return;
-
-        myCar.ChangeOwnership(NetworkManager.Singleton.LocalClientId);
     }
 }

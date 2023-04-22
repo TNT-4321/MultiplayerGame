@@ -31,7 +31,7 @@ public class Car : Interactable
     {
         canBeInteractedWith = true;
         //To make sure the client id is not 0 he is is automatically owner
-        GetComponent<NetworkObject>().ChangeOwnership(10000);
+        ChangeOwnershipServerRpc(10000);
 
         rigidbody = GetComponent<Rigidbody>();
     }
@@ -130,12 +130,13 @@ public class Car : Interactable
         currentInteractor = null;
         canBeInteractedWith = true;
         //Set the ownerId to 0 so the player is not the owner anymore
-        GetComponent<NetworkObject>().ChangeOwnership(10000);
+        ChangeOwnershipServerRpc(10000);
         Debug.Log("Exit Car");
     }
 
     //Real code
-    public void ChangeOwnership(ulong newOwnerId)
+    [ServerRpc(RequireOwnership = false)]
+    public void ChangeOwnershipServerRpc(ulong newOwnerId)
     {
         GetComponent<NetworkObject>().ChangeOwnership(newOwnerId);
         //isInteractable = false;
