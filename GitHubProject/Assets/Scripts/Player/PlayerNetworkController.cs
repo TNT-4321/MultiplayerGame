@@ -144,7 +144,6 @@ public class PlayerNetworkController : NetworkBehaviour
                 StartGrapple();
                 break;
             case PlayerState.Driving:
-                MoveInput();
                 Driving();
                 break;
             case PlayerState.Freezed:
@@ -189,11 +188,10 @@ public class PlayerNetworkController : NetworkBehaviour
         //Handles changing states 
     }
 
-    //Need this for the car
     private void MoveInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
     }
 
     private void JumpInput()
@@ -399,9 +397,10 @@ public class PlayerNetworkController : NetworkBehaviour
 
     private void Driving()
     {
-        transform.position = driverSeatPosition.transform.position;
+        /*transform.position = driverSeatPosition.transform.position;
         transform.rotation = driverSeatPosition.transform.rotation;
-        rigidbody.velocity = Vector3.zero;
+        rigidbody.velocity = Vector3.zero;*/
+        Debug.Log("Driving");
     }
 
 

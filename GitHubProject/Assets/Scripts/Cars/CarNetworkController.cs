@@ -5,15 +5,22 @@ using Unity.Netcode;
 
 public class CarNetworkController : NetworkBehaviour
 {
+    private Rigidbody carRigidbody;
     public WheelColliders colliders;
     public WheelMeshes meshes;
 
     [Header("Car")]
-    [SerializeField]private float gasInput;
+    private float gasInput;
+    private float steeringInput;
+
+    [SerializeField] private float motorPower;
+    private float speed;
+    [SerializeField] private AnimationCurve steeringCurve;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        carRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -21,12 +28,32 @@ public class CarNetworkController : NetworkBehaviour
     {
         if(!IsOwner) {return;}
 
+        speed = carRigidbody.velocity.magnitude;
+
+        DriveInput();
+        ApplyMotor();
+        ApplySteering();
         UpdateWheelVisuals();
     }
 
     private void DriveInput()
     {
+        gasInput = Input.GetAxis("Vertical");
+        steeringInput = Input.GetAxis("Horizontal");
+    }
 
+    private void ApplyMotor()
+    {
+        colliders.BLWheel.motorTorque = motorPower * gasInput;
+        colliders.BRWheel.motorTorque = motorPower * gasInput;
+    }
+
+    private void ApplySteering()
+    {
+        float steeringAngle = steeringInput * steeringCurve.Evaluate(speed);
+
+        colliders.FLWheel.steerAngle = steeringAngle;
+        colliders.FRWheel.steerAngle = steeringAngle;
     }
 
     private void UpdateWheelVisuals()

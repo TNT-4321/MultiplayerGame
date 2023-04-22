@@ -1032,7 +1032,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfb43a87417549bd951aa86bf72f378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 7181139709285019196}
   interactionKey: 101
+  myCurrency: {fileID: 3199060118532400143}
   rayPoint: {x: 0.5, y: 0.5, z: 0}
   interactionRange: 2
   playerCam: {fileID: 7181139709381193651}

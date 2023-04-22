@@ -6,6 +6,7 @@ using Unity.Netcode;
 
 public class Interactor : NetworkBehaviour
 {
+    public PlayerNetworkController player;
     [SerializeField] private KeyCode interactionKey = KeyCode.E;
     private Interactable currentFocusedInteractable;
     private CarInteractable myCar;
@@ -54,6 +55,7 @@ public class Interactor : NetworkBehaviour
 
             if(myCar != null)
                 myCar.ChangeOwnershipServerRpc(NetworkManager.Singleton.LocalClientId);
+                player.playerState = PlayerNetworkController.PlayerState.Driving;
         }
     }
 }
