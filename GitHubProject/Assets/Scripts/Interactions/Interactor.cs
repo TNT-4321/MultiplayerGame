@@ -8,7 +8,7 @@ public class Interactor : NetworkBehaviour
 {
     [SerializeField] private KeyCode interactionKey = KeyCode.E;
     private Interactable currentFocusedInteractable;
-    private Car myCar;
+    private CarInteractable myCar;
     public Currency myCurrency;
     [SerializeField] private Vector3 rayPoint;
     [SerializeField] private float interactionRange;
