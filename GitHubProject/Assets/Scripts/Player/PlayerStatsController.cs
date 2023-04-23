@@ -14,6 +14,8 @@ public class PlayerStatsController : NetworkBehaviour
 
     private void Start() 
     {
+        //Set referneces
+        healthSlider = GameObject.Find("HealthSlider").GetComponent<Slider>();
         //Set variables
         currentHealth = maxHealth;
     }

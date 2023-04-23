@@ -261,6 +261,8 @@ GameObject:
   - component: {fileID: 5017362576121739611}
   - component: {fileID: 8882682855332733351}
   - component: {fileID: 3166186097328941969}
+  - component: {fileID: 8367739382254705071}
+  - component: {fileID: 2652498209864009472}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -416,6 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5017362576121739611}
   interactionKey: 101
+  myCar: {fileID: 0}
   myCurrency: {fileID: 0}
   followCam: {fileID: 5017362577721023029}
   rayPoint: {x: 0.5, y: 0.5, z: 0}
@@ -424,6 +427,33 @@ MonoBehaviour:
   interactablesLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &8367739382254705071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5017362576121739606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d68681b065a37412a8c40435df945ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCoinsDisplayText: {fileID: 0}
+--- !u!114 &2652498209864009472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5017362576121739606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d70374440f9049378a84fa4d423d3cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  maxHealth: 100
 --- !u!1 &5017362576228464855
 GameObject:
   m_ObjectHideFlags: 0

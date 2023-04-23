@@ -12,6 +12,9 @@ public class Currency : MonoBehaviour
     
     public void AddCoins(int numberOfCoinsToAdd)
     {
+        //Set references
+        playerCoinsDisplayText = GameObject.Find("MoneyDisplay").GetComponent<TMP_Text>();
+
         currentCoins += numberOfCoinsToAdd;
         playerCoinsDisplayText.text = currentCoins.ToString();
     }

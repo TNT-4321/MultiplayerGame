@@ -9,7 +9,7 @@ public class Interactor : NetworkBehaviour
     public PlayerNetworkController player;
     [SerializeField] private KeyCode interactionKey = KeyCode.E;
     private Interactable currentFocusedInteractable;
-    private CarInteractable myCar;
+    public CarInteractable myCar;
     public Currency myCurrency;
     public CameraController followCam;
     [SerializeField] private Vector3 rayPoint;
@@ -55,11 +55,13 @@ public class Interactor : NetworkBehaviour
             currentFocusedInteractable.TryGetComponent(out myCar);
 
             if(myCar != null)
+            {
                 myCar.ChangeOwnershipServerRpc(NetworkManager.Singleton.LocalClientId);
                 followCam.followState = CameraController.FollowState.Driving;
                 player.playerState = PlayerNetworkController.PlayerState.Driving;
                 player.DeactivateVisualsAndCollider();
                 player.driverSeatPosition = myCar.driverSeat;
+            }      
         }
     }
 }

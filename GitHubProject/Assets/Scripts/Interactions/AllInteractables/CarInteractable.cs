@@ -13,7 +13,7 @@ public class CarInteractable : Interactable
     {
         canBeInteractedWith = true;
         //To make sure the client id is not 0 he is is automatically owner
-        ChangeOwnershipServerRpc(10000);
+        ChangeOwnershipServerRpc(10000000000);
     }
 
     public override void OnInteraction(Interactor interactor)
@@ -47,7 +47,8 @@ public class CarInteractable : Interactable
         currentInteractor = null;
         canBeInteractedWith = true;
         //Set the ownerId to 0 so the player is not the owner anymore
-        ChangeOwnershipServerRpc(10000);
+        ChangeOwnershipServerRpc(10000000000);
+        currentInteractor.myCar = null;
         Debug.Log("Exit Car");
     }
 
