@@ -15,7 +15,7 @@ public class CarNetworkController : NetworkBehaviour
 
     [SerializeField] private float motorPower;
     private float speed;
-    [SerializeField] private AnimationCurve steeringCurve;
+    [SerializeField] private float maxSteeringAngle;
 
     // Start is called before the first frame update
     void Start()
@@ -50,10 +50,10 @@ public class CarNetworkController : NetworkBehaviour
 
     private void ApplySteering()
     {
-        float steeringAngle = steeringInput * steeringCurve.Evaluate(speed);
+        float currentSteering = steeringInput * maxSteeringAngle;
 
-        colliders.FLWheel.steerAngle = steeringAngle;
-        colliders.FRWheel.steerAngle = steeringAngle;
+        colliders.FLWheel.steerAngle = currentSteering;
+        colliders.FRWheel.steerAngle = currentSteering;
     }
 
     private void UpdateWheelVisuals()

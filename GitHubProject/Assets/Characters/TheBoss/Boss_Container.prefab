@@ -1006,6 +1006,8 @@ MonoBehaviour:
   airMultiplier: 0.4
   jumpKey: 32
   anim: {fileID: 0}
+  playerVisuals: {fileID: 7731098457167395158}
+  playerCollider: {fileID: 6722863604338456256}
 --- !u!136 &6722863604338456256
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1035,6 +1037,7 @@ MonoBehaviour:
   player: {fileID: 7181139709285019196}
   interactionKey: 101
   myCurrency: {fileID: 3199060118532400143}
+  followCam: {fileID: 7181139709833760082}
   rayPoint: {x: 0.5, y: 0.5, z: 0}
   interactionRange: 2
   playerCam: {fileID: 7181139709381193651}

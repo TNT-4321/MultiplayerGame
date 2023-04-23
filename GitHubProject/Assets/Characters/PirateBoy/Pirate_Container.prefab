@@ -386,6 +386,8 @@ MonoBehaviour:
   airMultiplier: 0.4
   jumpKey: 32
   anim: {fileID: 0}
+  playerVisuals: {fileID: 7646106578209560371}
+  playerCollider: {fileID: 8882682855332733351}
 --- !u!136 &8882682855332733351
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -412,7 +414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfb43a87417549bd951aa86bf72f378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 5017362576121739611}
   interactionKey: 101
+  myCurrency: {fileID: 0}
+  followCam: {fileID: 5017362577721023029}
   rayPoint: {x: 0.5, y: 0.5, z: 0}
   interactionRange: 2
   playerCam: {fileID: 5017362576228464852}
@@ -727,5 +732,10 @@ PrefabInstance:
 --- !u!4 &7014283579505315209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46253c9914c444b7884323b831217b78, type: 3}
+  m_PrefabInstance: {fileID: 7412085775425628770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7646106578209560371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 46253c9914c444b7884323b831217b78, type: 3}
   m_PrefabInstance: {fileID: 7412085775425628770}
   m_PrefabAsset: {fileID: 0}

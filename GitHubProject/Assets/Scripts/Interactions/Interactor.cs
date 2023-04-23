@@ -11,6 +11,7 @@ public class Interactor : NetworkBehaviour
     private Interactable currentFocusedInteractable;
     private CarInteractable myCar;
     public Currency myCurrency;
+    public CameraController followCam;
     [SerializeField] private Vector3 rayPoint;
     [SerializeField] private float interactionRange;
     [SerializeField] private Camera playerCam;
@@ -55,7 +56,10 @@ public class Interactor : NetworkBehaviour
 
             if(myCar != null)
                 myCar.ChangeOwnershipServerRpc(NetworkManager.Singleton.LocalClientId);
+                followCam.followState = CameraController.FollowState.Driving;
                 player.playerState = PlayerNetworkController.PlayerState.Driving;
+                player.DeactivateVisualsAndCollider();
+                player.driverSeatPosition = myCar.driverSeat;
         }
     }
 }

@@ -7,6 +7,7 @@ public class CarInteractable : Interactable
 {
     public override bool canBeInteractedWith { get; set; }
     private Interactor currentInteractor;
+    public Transform driverSeat;
 
     private void Start() 
     {
@@ -41,6 +42,8 @@ public class CarInteractable : Interactable
     private void ExitCar()
     {
         currentInteractor.player.playerState = PlayerNetworkController.PlayerState.Normal;
+        currentInteractor.player.ActivateVisualsAndCollider();
+        currentInteractor.followCam.followState = CameraController.FollowState.FPS;
         currentInteractor = null;
         canBeInteractedWith = true;
         //Set the ownerId to 0 so the player is not the owner anymore

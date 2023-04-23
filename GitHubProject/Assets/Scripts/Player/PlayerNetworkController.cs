@@ -97,6 +97,10 @@ public class PlayerNetworkController : NetworkBehaviour
     [Header("Animation")]
     [SerializeField] private Animator anim;
 
+    [Header("Deactivation")]
+    [SerializeField] private GameObject playerVisuals;
+    [SerializeField] private CapsuleCollider playerCollider;
+
 
     private void Start() 
     {
@@ -397,10 +401,9 @@ public class PlayerNetworkController : NetworkBehaviour
 
     private void Driving()
     {
-        /*transform.position = driverSeatPosition.transform.position;
+        transform.position = driverSeatPosition.transform.position;
         transform.rotation = driverSeatPosition.transform.rotation;
-        rigidbody.velocity = Vector3.zero;*/
-        Debug.Log("Driving");
+        rigidbody.velocity = Vector3.zero;
     }
 
 
@@ -429,6 +432,18 @@ public class PlayerNetworkController : NetworkBehaviour
     private void DrivingCameraMovement()
     {
 
+    }
+
+    public void DeactivateVisualsAndCollider()
+    {
+        playerCollider.enabled = false;
+        playerVisuals.SetActive(false);
+    }
+
+    public void ActivateVisualsAndCollider()
+    {
+        playerCollider.enabled = true;
+        playerVisuals.SetActive(true);
     }
 
     private void ShowCursor()
