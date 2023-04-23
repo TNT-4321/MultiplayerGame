@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71659237050ad423b91ba628f593cdb8, type: 3}
   m_Name: Richard
   m_EditorClassIdentifier: 
-  id: -1
-  displayName: New Display Name
+  id: 6
+  displayName: Richard
   icon: {fileID: 0}
   introPrefab: {fileID: 0}
   gameplayPrefab: {fileID: 0}

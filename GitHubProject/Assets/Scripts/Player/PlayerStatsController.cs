@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PlayerStatsController : NetworkBehaviour
 {
     [Header("Health")]
-    [SerializeField] private Slider healthSlider;
+    private Slider healthSlider;
     [SerializeField] private int maxHealth;
     private int currentHealth;
 

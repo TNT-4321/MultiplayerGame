@@ -44,12 +44,11 @@ public class CarInteractable : Interactable
         currentInteractor.player.playerState = PlayerNetworkController.PlayerState.Normal;
         currentInteractor.player.ActivateVisualsAndCollider();
         currentInteractor.followCam.followState = CameraController.FollowState.FPS;
+        currentInteractor.myCar = null;
         currentInteractor = null;
         canBeInteractedWith = true;
         //Set the ownerId to 0 so the player is not the owner anymore
         ChangeOwnershipServerRpc(10000000000);
-        currentInteractor.myCar = null;
-        Debug.Log("Exit Car");
     }
 
     //Real code

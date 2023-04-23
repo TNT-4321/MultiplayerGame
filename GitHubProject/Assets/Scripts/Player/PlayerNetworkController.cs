@@ -28,6 +28,7 @@ public class PlayerNetworkController : NetworkBehaviour
     }
 
     public CamState camState;
+    public CamState lastCamState;
 
 
     [Header("PlayerMovement")]
@@ -55,6 +56,7 @@ public class PlayerNetworkController : NetworkBehaviour
     private bool freezedForMoment;
 
     public PlayerState playerState;
+    public PlayerState lastPlayerState;
 
 
     [Header("Grappling")]
@@ -152,6 +154,7 @@ public class PlayerNetworkController : NetworkBehaviour
                 break;
             case PlayerState.Freezed:
                 rigidbody.velocity = Vector3.zero;
+                ShowCursor();
                 return;
         }
 
@@ -172,7 +175,18 @@ public class PlayerNetworkController : NetworkBehaviour
         {
             Debug.Log("Here massage to GameManager for changing players");
         }
+        if(lastPlayerState != PlayerState.Freezed)
+        {
+            lastPlayerState = playerState;
+        }
+        if(lastCamState != CamState.Freezed)
+        {
+            lastCamState = camState;
+        }
+
     }
+
+    private bool deactivate;
 
     private void FixedUpdate() 
     {
