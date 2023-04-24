@@ -5,7 +5,7 @@ using Unity.Netcode;
 
 public class CarNetworkController : NetworkBehaviour
 {
-    private Rigidbody carRigidbody;
+    /*private Rigidbody carRigidbody;
     public WheelColliders colliders;
     public WheelMeshes meshes;
 
@@ -90,10 +90,10 @@ public class CarNetworkController : NetworkBehaviour
         Vector3 position;
         collider.GetWorldPose(out position, out quaternion);
         mesh.transform.rotation = quaternion;
-    }
+    }*/
 }
 
-[System.Serializable]
+/*[System.Serializable]
 public class WheelColliders
 {
     public WheelCollider FLWheel;
@@ -109,4 +109,4 @@ public class WheelMeshes
     public MeshRenderer FRWheel;
     public MeshRenderer BLWheel;
     public MeshRenderer BRWheel;
-}
+}*/
