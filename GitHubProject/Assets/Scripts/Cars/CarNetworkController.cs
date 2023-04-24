@@ -9,13 +9,20 @@ public class CarNetworkController : NetworkBehaviour
     public WheelColliders colliders;
     public WheelMeshes meshes;
 
-    [Header("Car")]
+    [Header("Input")]
     private float gasInput;
     private float steeringInput;
+    [SerializeField] private KeyCode brakeKey = KeyCode.Space;
 
+    [Header("MotorStrenght")]
     [SerializeField] private float motorPower;
     private float speed;
     [SerializeField] private float maxSteeringAngle;
+
+    [Header("Breaking")]
+    private bool isBreaking;
+    private float currentBrakeForce;
+    [SerializeField] private float brakeForce;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +47,25 @@ public class CarNetworkController : NetworkBehaviour
     {
         gasInput = Input.GetAxis("Vertical");
         steeringInput = Input.GetAxis("Horizontal");
+
+        isBreaking = Input.GetKeyDown(brakeKey);
     }
 
     private void ApplyMotor()
     {
         colliders.BLWheel.motorTorque = motorPower * gasInput;
         colliders.BRWheel.motorTorque = motorPower * gasInput;
+
+        currentBrakeForce = isBreaking ? brakeForce : 0f;
+        ApplyBreaking();
+    }
+
+    private void ApplyBreaking()
+    {
+        colliders.FLWheel.brakeTorque = currentBrakeForce;
+        colliders.FRWheel.brakeTorque = currentBrakeForce;
+        colliders.BLWheel.brakeTorque = currentBrakeForce;
+        colliders.BRWheel.brakeTorque = currentBrakeForce;
     }
 
     private void ApplySteering()

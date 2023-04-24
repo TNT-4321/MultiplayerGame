@@ -44,6 +44,7 @@ public class CarInteractable : Interactable
         currentInteractor.player.playerState = PlayerNetworkController.PlayerState.Normal;
         currentInteractor.player.ActivateVisualsAndCollider();
         currentInteractor.followCam.followState = CameraController.FollowState.FPS;
+        currentInteractor.player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         currentInteractor.myCar = null;
         currentInteractor = null;
         canBeInteractedWith = true;

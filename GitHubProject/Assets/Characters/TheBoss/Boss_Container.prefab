@@ -424,6 +424,7 @@ MonoBehaviour:
   playerCam: {fileID: 7181139709381193651}
   camController: {fileID: 7181139709833760082}
   camState: 0
+  lastCamState: 0
   walkSpeed: 6
   sprintSpeed: 10
   groundDrag: 5
@@ -431,6 +432,7 @@ MonoBehaviour:
   verticalInput: 0
   sprintKey: 304
   playerState: 0
+  lastPlayerState: 0
   gunTip: {fileID: 7133550013741108886}
   whatIsGrappable:
     serializedVersion: 2
@@ -502,7 +504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d68681b065a37412a8c40435df945ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCoinsDisplayText: {fileID: 0}
 --- !u!114 &645833174845608487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,7 +516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d70374440f9049378a84fa4d423d3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 0}
   maxHealth: 100
 --- !u!114 &6927397393652893535
 MonoBehaviour:
@@ -531,8 +531,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   networkPlayer: {fileID: 7181139709285019196}
   pauseKey: 112
-  pauseMenu: {fileID: 0}
-  gameView: {fileID: 0}
 --- !u!1 &7181139709381193648
 GameObject:
   m_ObjectHideFlags: 0

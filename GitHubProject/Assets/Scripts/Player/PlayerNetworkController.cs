@@ -10,8 +10,8 @@ public class PlayerNetworkController : NetworkBehaviour
 
     [Header("CameraMovement")]
     [SerializeField] private Vector3 camCenter;
-    [SerializeField] private float sensX;
-    [SerializeField] private float sensY;
+    public float sensX;
+    public float sensY;
 
     [SerializeField] private Camera playerCam;
     public CameraController camController;
